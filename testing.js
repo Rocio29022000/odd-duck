@@ -53,6 +53,18 @@ function renderProducts(){
     allProducts[product1].views++;
     allProducts[product2].views++;
     allProducts[product3].views++;
+
+    //testing
+    let image = [];
+    function attributes(number){
+        for (let i=0; i < number; i++){
+            let image = [];
+            image[i] = 1; 
+            image1.src = allProducts[product1].src;
+            image1.alt = allProducts[product1].name;
+            allProducts[product1].views++;
+        }
+    }
 }
 
 //Function for the click event
@@ -113,4 +125,3 @@ const wineglass = new Product("wine-glass", "img/wine-glass.jpg");
 renderProducts();
 
 productContainer.addEventListener("click", handleProductClick);
-  
