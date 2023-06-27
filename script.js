@@ -4,9 +4,10 @@ console.log("Pick Me!")
 //Global variables
 const productContainer = document.querySelector("section");
 const resultsButton = document.querySelector("button");
-const image1 = document.querySelector("section img:first-child");
-const image2 = document.querySelector("section img:nth-child(2)");
-const image3 = document.querySelector("section img:nth-child(3)");
+const image1 = document.getElementById("image1");
+const image2 = document.getElementById("image2");
+const image3 = document.getElementById("image3");
+
 
 //Set values
 let clicks = 0;
@@ -72,7 +73,7 @@ function handleProductClick(event) {
       if (clicks === maxClicksAllowed) {
         productContainer.removeEventListener("click", handleProductClick);
         productContainer.className = "no-voting";
-        resultsButton.addEventListener("click", renderResults);
+        resultsButton.addEventListener("click", renderChart);
         resultsButton.className = "clicks-allowed";
       } else {
         renderProducts();
@@ -88,6 +89,7 @@ function handleProductClick(event) {
       li.textContent = `${allProducts[i].name} had ${allProducts[i].views} views and was clicked ${allProducts[i].clicks} times.`;
       ul.appendChild(li);
     }
+    
   }
 
 const bag = new Product("bag", "img/bag.jpg");
@@ -113,4 +115,44 @@ const wineglass = new Product("wine-glass", "img/wine-glass.jpg");
 renderProducts();
 
 productContainer.addEventListener("click", handleProductClick);
+
+function renderChart(){
   
+  const productNames = [];
+  const productViews = [];
+  const productClicks = [];
+
+  for (let i=0; i < allProducts.length; i++){
+    productNames.push(allProducts[i].name);
+    productViews.push(allProducts[i].views);
+    productClicks.push(allProducts[i].clicks);
+  }
+  
+  const data = {
+    labels: productNames,
+    datasets: [
+      {
+      label: "Views",
+      data: productViews,
+      backgroundColor: ["#42032C"],
+      borderColor: ["#D36B00"],
+      bandWidth: 1
+      },
+      {
+        label: "Clicks",
+        data: productClicks,
+        backgroundColor: ["#D36B00"],
+        borderColor: ["#42032C"],
+        bandWidth: 1
+      }
+    ] 
+  }
+
+  const config = {
+    type: "bar",
+    data: data,
+  }
+  
+  const productChart = document.getElementById("chart");
+  const myChart = new Chart(productChart, config)
+}
