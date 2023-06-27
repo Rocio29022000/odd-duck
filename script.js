@@ -40,40 +40,41 @@ function renderProducts(){
     
     console.log("Previous products were: " + previousProducts)
     console.log("Current products are: " + currentProducts)
-    
-
 
     //Avoid repetition
-    while (product1 === product2 || product2 === product3){
-        product2 = randomNum();
+    while (currentProducts[0] === currentProducts[1] || currentProducts[1] === currentProducts[2]){
+      currentProducts[1] = randomNum();
     }
-    while (product1 === product3){
-        product3 = randomNum();
+    while (currentProducts[0] === currentProducts[2]){
+      currentProducts[2] = randomNum();
     }
+    console.log("Current products are: " + currentProducts)
+
     const equal = currentProducts.filter(currentProducts => previousProducts.includes(currentProducts));
-    console.log("The repeated value is: " + equal)
-    let index = currentProducts.indexOf(currentProducts, equal)
+    console.log(equal)
+    let index = currentProducts.indexOf(equal[0])
     console.log("The index of that value is: " + index)
+    if (index != -1){
+      while(equal === product1 || equal === product2 || equal === product3);{
+        currentProducts.splice(index, 1, randomNum())  
+        }
+    }
 
-  //  while(equal === product1 || equal === product2 || equal === product3);{
-  //   currentProducts.splice(index, 1, randomNum())  
-  //   }
-
-  //   console.log("The new current products are: " + currentProducts)
+    console.log("The new current products are: " + currentProducts)
 
     //setting the attributes
-    image1.src = allProducts[product1].src;
-    image2.src = allProducts[product2].src;
-    image3.src = allProducts[product3].src;
-    image1.alt = allProducts[product1].name;
-    image2.alt = allProducts[product2].name;
-    image3.alt = allProducts[product3].name;
-    allProducts[product1].views++;
-    allProducts[product2].views++;
-    allProducts[product3].views++;
+    image1.src = allProducts[currentProducts[0]].src;
+    image2.src = allProducts[currentProducts[1]].src;
+    image3.src = allProducts[currentProducts[2]].src;
+    image1.alt = allProducts[currentProducts[0]].name;
+    image2.alt = allProducts[currentProducts[1]].name;
+    image3.alt = allProducts[currentProducts[2]].name;
+    allProducts[currentProducts[0]].views++;
+    allProducts[currentProducts[1]].views++;
+    allProducts[currentProducts[2]].views++;
 
     //add products to the previous product variable
-    previousProducts = [product1, product2, product3]
+    previousProducts = [currentProducts[0], currentProducts[1], currentProducts[2]]
     console.log(previousProducts)
 }
 
