@@ -51,7 +51,7 @@ function renderProducts(){
     console.log("Current products are: " + currentProducts)
 
     const equal = currentProducts.filter(currentProducts => previousProducts.includes(currentProducts));
-    console.log(equal)
+    console.log("The repeated number is: " + equal)
     let index = currentProducts.indexOf(equal[0])
     console.log("The index of that value is: " + index)
     if (index != -1){

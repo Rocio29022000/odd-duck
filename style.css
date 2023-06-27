@@ -1,20 +1,30 @@
-img {
-    display: inline-block;
-    max-width:300px;
-    max-height:150px;
-    width: auto;
-    height: auto;
-    border: solid black;
-    border-radius: 5px;
-  }
-  header {
-    background-color: rgba(241, 122, 54, 0.821);
-    height: 100px;
-    display: flex;
+@font-face {
+  font-family: "retro_gaming" ;
+  src: url(/retro_gaming.ttf);
+}
+
+header {
+  background-color: rgba(241, 122, 54, 0.821);
+  height: 100px;
+  display: flex;
   
-  }
+}
 
-  h1 {
-    display: flexbox;
+h1 {
+  font-family: "retro_gaming";
+}
+  
+#logo{
+  border-radius: 20px;
+  justify-content: right;
+}
 
-  }
+img {
+  display: inline-block;
+  max-width:300px;
+  max-height:150px;
+  width: auto;
+  height: auto;
+  border: solid black;
+  border-radius: 5px;
+}
