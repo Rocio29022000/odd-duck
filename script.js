@@ -15,6 +15,7 @@ const maxClicksAllowed = 25;
 
 //Set Product array
 let allProducts = [];
+let previousProducts = []
 
 //Random number generator
 function randomNum(){
@@ -35,6 +36,12 @@ function renderProducts(){
     let product1 = randomNum();
     let product2 = randomNum();
     let product3 = randomNum();
+    let currentProducts = [product1, product2, product3]
+    
+    console.log("Previous products were: " + previousProducts)
+    console.log("Current products are: " + currentProducts)
+    
+
 
     //Avoid repetition
     while (product1 === product2 || product2 === product3){
@@ -43,6 +50,16 @@ function renderProducts(){
     while (product1 === product3){
         product3 = randomNum();
     }
+    const equal = currentProducts.filter(currentProducts => previousProducts.includes(currentProducts));
+    console.log("The repeated value is: " + equal)
+    let index = currentProducts.indexOf(currentProducts, equal)
+    console.log("The index of that value is: " + index)
+
+  //  while(equal === product1 || equal === product2 || equal === product3);{
+  //   currentProducts.splice(index, 1, randomNum())  
+  //   }
+
+  //   console.log("The new current products are: " + currentProducts)
 
     //setting the attributes
     image1.src = allProducts[product1].src;
@@ -54,6 +71,10 @@ function renderProducts(){
     allProducts[product1].views++;
     allProducts[product2].views++;
     allProducts[product3].views++;
+
+    //add products to the previous product variable
+    previousProducts = [product1, product2, product3]
+    console.log(previousProducts)
 }
 
 //Function for the click event
@@ -134,15 +155,15 @@ function renderChart(){
       {
       label: "Views",
       data: productViews,
-      backgroundColor: ["#42032C"],
-      borderColor: ["#D36B00"],
+      backgroundColor: ["lightblue"],
+      borderColor: ["black"],
       bandWidth: 1
       },
       {
         label: "Clicks",
         data: productClicks,
-        backgroundColor: ["#D36B00"],
-        borderColor: ["#42032C"],
+        backgroundColor: ["blue"],
+        borderColor: ["black"],
         bandWidth: 1
       }
     ] 
