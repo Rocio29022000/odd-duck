@@ -171,3 +171,4 @@ function renderChart(){
   const productChart = document.getElementById("chart");
   const myChart = new Chart(productChart, config)
 }
+
