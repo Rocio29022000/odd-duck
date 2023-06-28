@@ -194,5 +194,3 @@ function setLocalStorage(){
     }
   }
   
-  // checkLocalStorage();
-  // renderProducts();
