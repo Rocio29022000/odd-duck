@@ -31,3 +31,21 @@ img {
   border-radius: 5px;
 }
 
+// function setLocalStorage(){
+  //   localStorage.setItem("products", JSON.stringify(allProducts));
+  // }
+  
+  // function checkLocalStorage(){
+  //   const localProducts = JSON.parse(localStorage.getItem("products"));
+  //   if(localProducts){
+  //     allProducts = localProducts
+  //   } else {
+  //     console.log("new products please");
+  //     for (let i = 0; i < allProducts.length; i++) {
+  //       new Product(productNames[i], `img/${productNames[i]}.jpg`);
+  //     }
+  //   }
+  // }
+  
+  // checkLocalStorage();
+  // renderProducts();
