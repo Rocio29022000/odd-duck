@@ -16,6 +16,7 @@ const maxClicksAllowed = 25;
 //Set Product array
 let allProducts = [];
 let previousProducts = []
+let productNames = ["bag", "banana", "bathroom", "boots", "breakfast", "bubblegum", "chair", "cthulhu", "dog-duck", "dragon", "pen", "pet-sweep", "scissors", "shark", "sweep", "tauntaun", "unicorn", "water-can", "wine-glass"]
 
 //Random number generator
 function randomNum(){
@@ -121,25 +122,10 @@ function handleProductClick(event) {
     
   }
 
-const bag = new Product("bag", "img/bag.jpg");
-const banana = new Product("banana", "img/banana.jpg");
-const bathroom = new Product("bathroom", "img/bathroom.jpg");
-const boots = new Product("boots", "img/boots.jpg");
-const breakfast = new Product("breakfast", "img/breakfast.jpg");
-const bubblegum = new Product("bubblegum", "img/bubblegum.jpg");
-const chair = new Product("chair", "img/chair.jpg");
-const cthulhu = new Product("cthulhu", "img/cthulhu.jpg");
-const dogduck = new Product("dog-duck", "img/dog-duck.jpg");
-const dragon = new Product("dragon", "img/dragon.jpg");
-const pen = new Product("pen", "img/pen.jpg");
-const petsweep = new Product("pet-sweep", "img/pet-sweep.jpg");
-const scissors = new Product("scissors", "img/scissors.jpg");
-const shark = new Product("shark", "img/shark.jpg");
-const sweep = new Product("sweep", "img/sweep.png");
-const tauntaun = new Product("tauntaun", "img/tauntaun.jpg");
-const unicorn = new Product("unicorn", "img/unicorn.jpg");
-const watercan = new Product("water-can", "img/water-can.jpg");
-const wineglass = new Product("wine-glass", "img/wine-glass.jpg");
+
+for (let i = 0; i < productNames.length; i++) {
+  new Product(productNames[i], `img/${productNames[i]}.jpg`);
+}
 
 renderProducts();
 
