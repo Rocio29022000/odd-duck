@@ -49,16 +49,23 @@ function renderProducts(){
       currentProducts[2] = randomNum();
     }
     console.log("Current products are: " + currentProducts)
-
     const equal = currentProducts.filter(currentProducts => previousProducts.includes(currentProducts));
     console.log("The repeated number is: " + equal)
     let index = currentProducts.indexOf(equal[0])
     console.log("The index of that value is: " + index)
     if (index != -1){
-      while(equal === product1 || equal === product2 || equal === product3);{
+      while(equal === currentProducts[0] || equal === currentProducts[1] || equal === currentProducts[2]);{
         currentProducts.splice(index, 1, randomNum())  
         }
     }
+    while (currentProducts[0] === currentProducts[1] || currentProducts[1] === currentProducts[2]){
+      currentProducts[1] = randomNum();
+    }
+    while (currentProducts[0] === currentProducts[2]){
+      currentProducts[2] = randomNum();
+    }
+    console.log("Current products are: " + currentProducts)
+
 
     console.log("The new current products are: " + currentProducts)
 

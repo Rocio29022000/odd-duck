@@ -12,11 +12,13 @@ header {
 
 h1 {
   font-family: "retro_gaming";
+  align-items: center;
+
 }
   
 #logo{
   border-radius: 20px;
-  justify-content: right;
+
 }
 
 img {
@@ -28,3 +30,4 @@ img {
   border: solid black;
   border-radius: 5px;
 }
+
